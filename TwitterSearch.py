@@ -1,6 +1,14 @@
 from twitter import *
 import json
 import os
+import apikeys
+
+# 'apikeys' is another Python script, not incl. in the repo
+# It sets the required environmental variables that
+# contain the Twitter API keys/tokens
+
+
+apikeys.setkeys()
 
 # OAuth tokens grabbed from my environment, amazingly!
 auth = OAuth(
@@ -41,6 +49,7 @@ for tweet in res['statuses']:
         # print(tweet['user']['id'] # id of the user who posted the tweet
         print(tweet['user']['name']) # name of the user, e.g. "Wei Xu"
         # print(tweet['user']['screen_name'] # name of the user account, e.g. "cocoweixu"
+        print()
 
     except:
         # read in a line is not in JSON format (sometimes error occured)
